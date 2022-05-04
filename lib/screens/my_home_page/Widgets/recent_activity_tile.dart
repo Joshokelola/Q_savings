@@ -8,8 +8,8 @@ class RecentActivitiesTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-          left: 30,
-          right: 30,
+          left: 20,
+          right: 20,
           bottom:
               10), //TODO:Check this jus =t in case of spacing issues between widgets
       child: Container(
@@ -25,8 +25,8 @@ class RecentActivitiesTile extends StatelessWidget {
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.access_time_rounded),
-            SizedBox(
+            const Icon(Icons.access_time_rounded),
+            const SizedBox(
               width: 10,
             ),
             Column(

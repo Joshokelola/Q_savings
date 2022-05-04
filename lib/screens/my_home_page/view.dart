@@ -1,4 +1,3 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -39,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: const ScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     BuildSaving(), //TODO: Remember to check out this height value just in case of layout adjustment stuff,
               ),
               SizedBox(
-                height: 230,
+                height: 290,
                 child:
                     TodoListWidget(), //TODO: Remember to check out this height value just in case of layout adjustment stuff,
               ),
@@ -67,45 +67,52 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 100,
                 child: CreateSafelockTile(),
               ),
-              QuickOptionsGridTileView(),
+              SizedBox(
+                height: 450,
+                child: QuickOptionsGridTileView(),
+              ),
             ],
           ),
         ),
       ),
       bottomNavigationBar: SalomonBottomBar(
+        itemPadding: const EdgeInsets.symmetric(
+          horizontal: 23,
+          vertical: 16,
+        ),
         currentIndex: _bottomNavIndex,
         onTap: (i) => setState(() => _bottomNavIndex = i),
-        margin: const EdgeInsets.only(left: 2),
+        margin: const EdgeInsets.only(left: 2, bottom: 5),
         curve: Curves.easeOutCirc,
         items: [
           /// Home
           SalomonBottomBarItem(
-            icon: Icon(Icons.home),
-            title: Text("Home"),
+            icon: const Icon(Icons.home),
+            title: const Text("Home"),
             selectedColor: Colors.purple,
             unselectedColor: Colors.black38,
           ),
 
           /// Likes
           SalomonBottomBarItem(
-            icon: Icon(Icons.account_balance_outlined),
-            title: Text("Savings"),
+            icon: const Icon(Icons.account_balance_outlined),
+            title: const Text("Savings"),
             selectedColor: Colors.red,
             unselectedColor: Colors.black38,
           ),
 
           /// Search
           SalomonBottomBarItem(
-            icon: Icon(Icons.search),
-            title: Text("Search"),
+            icon: const Icon(Icons.search),
+            title: const Text("Search"),
             selectedColor: Colors.orange,
             unselectedColor: Colors.black38,
           ),
 
           /// Profile
           SalomonBottomBarItem(
-            icon: Icon(Icons.person),
-            title: Text("Profile"),
+            icon: const Icon(Icons.person),
+            title: const Text("Profile"),
             selectedColor: Colors.blueAccent,
             unselectedColor: Colors.black38,
           ),

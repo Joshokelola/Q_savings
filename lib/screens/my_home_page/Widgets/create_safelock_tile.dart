@@ -8,8 +8,8 @@ class CreateSafelockTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-          left: 30,
-          right: 30,
+          left: 20,
+          right: 20,
           bottom:
               30), //TODO:Check this jus =t in case of spacing issues between widgets
       child: Container(
@@ -25,8 +25,8 @@ class CreateSafelockTile extends StatelessWidget {
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.lock_rounded),
-            SizedBox(
+            const Icon(Icons.lock_rounded),
+            const SizedBox(
               width: 10,
             ),
             Column(
@@ -36,9 +36,13 @@ class CreateSafelockTile extends StatelessWidget {
                   'Create a Safelock',
                   style: darkTheme.textTheme.labelMedium,
                 ),
-                Text(
-                  'Avoid Spending temptations. Tap to create a Safelock',
-                  style: darkTheme.textTheme.labelSmall,
+                Flexible(
+                  fit: FlexFit.tight,
+                  child: Text(
+                    "Avoid Spending temptations. Tap to create",
+                    // overflow: TextOverflow.visible,
+                    style: darkTheme.textTheme.labelSmall,
+                  ),
                 )
               ],
             )
