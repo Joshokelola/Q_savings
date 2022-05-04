@@ -13,6 +13,8 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'logic.dart';
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }

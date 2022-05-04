@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'logic.dart';
 
 class MySavingsPage extends StatefulWidget {
+  const MySavingsPage({Key? key}) : super(key: key);
+
   @override
   _MySavingsPageState createState() => _MySavingsPageState();
 }

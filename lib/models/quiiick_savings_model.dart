@@ -10,7 +10,7 @@ List<QuiiickSavingModel> qmodel = <QuiiickSavingModel>[
   QuiiickSavingModel(savingsType: 'Total Savings', totalAvailable: '\$2000'),
   QuiiickSavingModel(savingsType: 'Total Investments', totalAvailable: '\$121'),
   QuiiickSavingModel(savingsType: 'Quiiick Dollar', totalAvailable: '\$1000'),
-  QuiiickSavingModel(savingsType: 'Quiiick Naira', totalAvailable: '\N100000'),
+  QuiiickSavingModel(savingsType: 'Quiiick Naira', totalAvailable: 'N100000'),
   QuiiickSavingModel(savingsType: 'Abeg App', totalAvailable: '\$1000'),
 ];
 
