@@ -8,7 +8,7 @@ class BuildSaving extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 30),
+      padding: const EdgeInsets.only(left: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -16,10 +16,10 @@ class BuildSaving extends StatelessWidget {
             'BUILD YOUR SAVINGS',
             style: darkTheme.textTheme.titleSmall,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Container(
+          SizedBox(
             width: 300,
             child: SvgPicture.asset(
               'images/analytics.svg',

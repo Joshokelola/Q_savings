@@ -1,5 +1,4 @@
 import 'package:emojis/emojis.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:q_savings_app/themes/dark_theme.dart';
 
@@ -19,7 +18,11 @@ class _TodoListWidgetState extends State<TodoListWidget> {
   Widget build(BuildContext context) {
     //TODO:Remember to wrap child of column with expanded to avoid unbounded constraints error
     return Padding(
-      padding: const EdgeInsets.only(left: 30, right: 30),
+      padding: const EdgeInsets.only(
+        left: 20,
+        right: 20,
+        // bottom: 10,
+      ),
       child: Column(
         children: [
           Container(
@@ -38,13 +41,15 @@ class _TodoListWidgetState extends State<TodoListWidget> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
-          ListView(
-            shrinkWrap: true,
+          Column(
+            // shrinkWrap: true,
+
             children: [
               Container(
+                height: 60,
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(10),
@@ -71,10 +76,11 @@ class _TodoListWidgetState extends State<TodoListWidget> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
+                height: 60,
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(10),
@@ -101,8 +107,9 @@ class _TodoListWidgetState extends State<TodoListWidget> {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
+                height: 60,
                 decoration: BoxDecoration(
                   border: Border.all(
                     style: BorderStyle.solid,
