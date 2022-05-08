@@ -24,7 +24,7 @@ class BuildSaving extends StatelessWidget {
             child: SvgPicture.asset(
               'images/analytics.svg',
               height: 150,
-              fit: BoxFit.fill,
+              fit: BoxFit.fitWidth,
             ),
           )
         ],

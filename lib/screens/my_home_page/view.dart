@@ -8,6 +8,10 @@ import 'package:q_savings_app/screens/my_home_page/Widgets/recent_activity_tile.
 import 'package:q_savings_app/screens/my_home_page/Widgets/scrollable_savings_overview_carousel.dart';
 import 'package:q_savings_app/screens/my_home_page/Widgets/todo_list_widget.dart';
 import 'package:q_savings_app/screens/my_home_page/Widgets/top_header_widget.dart';
+import 'package:q_savings_app/screens/my_savings_page/logic.dart';
+import 'package:q_savings_app/screens/my_savings_page/view.dart';
+import 'package:q_savings_app/screens/search_page/search_page.dart';
+import 'package:q_savings_app/screens/user_profile_page/user_page.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import 'logic.dart';
@@ -22,10 +26,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final autoSizeGroup = AutoSizeGroup();
   var _bottomNavIndex = 0;
+  var _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     final logic = Get.find<MyHomePageLogic>();
+    Get.lazyPut(() => MySavingsPageLogic());
 
     final state = Get.find<MyHomePageLogic>().state;
     final iconsList = <IconData>[
@@ -36,46 +42,17 @@ class _MyHomePageState extends State<MyHomePage> {
       Icons.person_outlined
     ];
 
+    final differentScreen = <Widget>[
+      const MainSingleScrollView(),
+      const MySavingsPage(),
+      const SearchPage(),
+      const UserProfilePage()
+    ];
+
     //TODO:Wrap this widget with a singlechildscrollview
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          physics: const ScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: const [
-              SizedBox(
-                  height: 100,
-                  child:
-                      TopHeaderWidget()), //TODO: Remember to check out this height value just in case of layout adjustment stuff,
-              SizedBox(
-                  height: 150,
-                  child:
-                      SavingsOverview()), //TODO: Remember to check out this height value just in case of layout adjustment stuff,
-              SizedBox(
-                height: 220,
-                child:
-                    BuildSaving(), //TODO: Remember to check out this height value just in case of layout adjustment stuff,
-              ),
-              SizedBox(
-                height: 290,
-                child:
-                    TodoListWidget(), //TODO: Remember to check out this height value just in case of layout adjustment stuff,
-              ),
-              SizedBox(height: 80, child: RecentActivitiesTile()),
-              SizedBox(
-                height: 100,
-                child: CreateSafelockTile(),
-              ),
-              SizedBox(
-                height: 450,
-                child: QuickOptionsGridTileView(),
-              ),
-            ],
-          ),
-        ),
+        child: differentScreen.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: SalomonBottomBar(
         itemPadding: const EdgeInsets.symmetric(
@@ -83,7 +60,12 @@ class _MyHomePageState extends State<MyHomePage> {
           vertical: 16,
         ),
         currentIndex: _bottomNavIndex,
-        onTap: (i) => setState(() => _bottomNavIndex = i),
+        onTap: (i) {
+          setState(() {
+            _bottomNavIndex = i;
+            _selectedIndex = i;
+          });
+        },
         margin: const EdgeInsets.only(left: 2, bottom: 5),
         curve: Curves.easeOutCirc,
         items: [
@@ -117,6 +99,53 @@ class _MyHomePageState extends State<MyHomePage> {
             title: const Text("Profile"),
             selectedColor: Colors.blueAccent,
             unselectedColor: Colors.black38,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MainSingleScrollView extends StatelessWidget {
+  const MainSingleScrollView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      physics: const ScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: const [
+          SizedBox(
+              height: 100,
+              child:
+                  TopHeaderWidget()), //TODO: Remember to check out this height value just in case of layout adjustment stuff,
+          SizedBox(
+              height: 150,
+              child:
+                  SavingsOverview()), //TODO: Remember to check out this height value just in case of layout adjustment stuff,
+          SizedBox(
+            height: 220,
+            child:
+                BuildSaving(), //TODO: Remember to check out this height value just in case of layout adjustment stuff,
+          ),
+          SizedBox(
+            height: 290,
+            child:
+                TodoListWidget(), //TODO: Remember to check out this height value just in case of layout adjustment stuff,
+          ),
+          SizedBox(height: 80, child: RecentActivitiesTile()),
+          SizedBox(
+            height: 100,
+            child: CreateSafelockTile(),
+          ),
+          SizedBox(
+            height: 450,
+            child: QuickOptionsGridTileView(),
           ),
         ],
       ),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:q_savings_app/screens/my_savings_page/Widgets/flex_overview_page.dart';
+import 'package:q_savings_app/screens/user_profile_page/user_page.dart';
 
 import 'package:q_savings_app/themes/dark_theme.dart';
 
@@ -20,7 +23,9 @@ class QuickOptionsGridTileView extends StatelessWidget {
             height: 15,
           ),
           const Flexible(
-            child: GridListOverview(crossAxisCount: 2,),
+            child: GridListOverview(
+              crossAxisCount: 2,
+            ),
           )
         ],
       ),
@@ -121,76 +126,89 @@ class GridListOverview extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.orangeAccent,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-                bottomRight: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
-              ),
+          GestureDetector(
+            onTap: () => Get.to(
+              () => const FlexOverviewPage(),
+              transition: Transition.leftToRight,
             ),
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.orangeAccent,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                ),
+              ),
 
-            // height: 20,
-            child: Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Quiiick Naira',
-                    style: darkTheme.textTheme.displayMedium,
-                  ),
-                  const SizedBox(height: 10),
-                  const Text(
-                    'Free Transfers, withdrawals e.t.c. 10% pa on QuiiickSave',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
+              // height: 20,
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Quiiick Naira',
+                      style: darkTheme.textTheme.displayMedium,
                     ),
-                  ),
-                  const SizedBox(height: 40),
-                  Text('View Assessment', style: darkTheme.textTheme.labelSmall)
-                ],
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Free Transfers, withdrawals e.t.c. 10% pa on QuiiickSave',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    Text('View Assessment',
+                        style: darkTheme.textTheme.labelSmall)
+                  ],
+                ),
               ),
             ),
           ),
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.black38,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-                bottomRight: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
+          GestureDetector(
+            onTap: () => Get.to(
+              () => const UserProfilePage(),
+              transition: Transition.rightToLeft,
+            ), //TODO:REMOVE THIS LINE OF CODE
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.black38,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                ),
               ),
-            ),
 
-            // height: 20,
-            child: Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Quiiick Dollar',
-                    style: darkTheme.textTheme.displayMedium,
-                  ),
-                  const SizedBox(height: 10),
-                  const Text(
-                    'Save & grow your wealth in dollars. Up to 7% pa in dollars on QuiiickSave',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
+              // height: 20,
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Quiiick Dollar',
+                      style: darkTheme.textTheme.displayMedium,
                     ),
-                  ),
-                  const SizedBox(height: 40),
-                  Text(
-                    'View Assessment',
-                    style: darkTheme.textTheme.labelSmall,
-                  )
-                ],
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Save & grow your wealth in dollars. Up to 7% pa in dollars on QuiiickSave',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    Text(
+                      'View Assessment',
+                      style: darkTheme.textTheme.labelSmall,
+                    )
+                  ],
+                ),
               ),
             ),
           ),

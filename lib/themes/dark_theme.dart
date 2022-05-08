@@ -14,6 +14,13 @@ ThemeData darkTheme = ThemeData(
       fontWeight: FontWeight.w200,
       fontFamily: 'AbrilFatFace',
     ),
+    headlineMedium: TextStyle(
+      color: Colors.black,
+      fontWeight: FontWeight.bold,
+      fontSize: 25,
+      fontFamily: 'Worksans',
+    ),
+
     titleSmall: TextStyle(
       fontSize: 15,
       fontWeight: FontWeight.w700,

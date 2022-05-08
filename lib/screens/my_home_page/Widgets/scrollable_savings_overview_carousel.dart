@@ -4,8 +4,13 @@ import 'package:emojis/emojis.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:q_savings_app/models/quiiick_savings_model.dart';
+import 'package:q_savings_app/screens/my_savings_page/Widgets/flex_overview_page.dart';
+import 'package:q_savings_app/screens/my_savings_page/view.dart';
+import 'package:q_savings_app/screens/search_page/search_page.dart';
+import 'package:q_savings_app/screens/user_profile_page/user_page.dart';
 import 'package:q_savings_app/themes/dark_theme.dart';
 
+import '../../abeg_app_page/abeg_app_page.dart';
 import '../logic.dart';
 
 class SavingsOverview extends StatelessWidget {
@@ -26,17 +31,17 @@ class SavingsOverview extends StatelessWidget {
     var items = [
       'Total Savings',
       'Total Investments',
-      'Flex Dollar',
+      'Quiiick Dollar',
       'Flex Naira',
       'Abeg App'
     ];
 
     var totalAmount = [
-      '\$1000',
-      '\$300',
-      '\$400',
-      '\$20',
-      '\$1110',
+      '\u{20A6}100000',
+      '\u{20a6}20000',
+      '\$4000',
+      '\u{20a6}20000',
+      '\u{20a6}20000',
     ];
 
     var emoticons = <String>[
@@ -45,6 +50,22 @@ class SavingsOverview extends StatelessWidget {
       Emojis.heavyDollarSign,
       Emojis.filmFrames,
       Emojis.atmSign
+    ];
+
+    var actions = <Widget>[
+      const MySavingsPage(),
+      const SearchPage(),
+      const UserProfilePage(), //TODO: REMOVE THIS LINE OF CODE
+      const FlexOverviewPage(),
+      const AbegAppPage(),
+    ];
+
+    var pageTransition = <Transition>[
+      Transition.rightToLeft,
+      Transition.leftToRight,
+      Transition.rightToLeft,
+      Transition.leftToRight,
+      Transition.fadeIn
     ];
     return Scaffold(
       body: Column(
@@ -60,44 +81,51 @@ class SavingsOverview extends StatelessWidget {
                     builder: (BuildContext context) {
                       return Column(
                         children: [
-                          Container(
-                            height: 100,
-                            width: MediaQuery.of(context).size.width,
-                            margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                            decoration: BoxDecoration(
-                              color: colors[index],
-                              borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(20),
-                                topLeft: Radius.circular(20),
-                                bottomRight: Radius.circular(20),
-                              ),
+                          GestureDetector(
+                            onTap: () => Get.to(
+                              () => actions[index1],
+                              transition: pageTransition[index1],
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child: Row(
-                                children: [
-                                  Text(emoticons[index]),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        items[index],
-                                        style: darkTheme.textTheme.bodyMedium,
-                                      ),
-                                      const SizedBox(
-                                        height: 8,
-                                      ),
-                                      Text(
-                                        totalAmount[index],
-                                        style: darkTheme.textTheme.labelSmall,
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                            child: Container(
+                              height: 100,
+                              width: MediaQuery.of(context).size.width,
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 5.0),
+                              decoration: BoxDecoration(
+                                color: colors[index],
+                                borderRadius: const BorderRadius.only(
+                                  topRight: Radius.circular(20),
+                                  topLeft: Radius.circular(20),
+                                  bottomRight: Radius.circular(20),
+                                ),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: Row(
+                                  children: [
+                                    Text(emoticons[index]),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          items[index],
+                                          style: darkTheme.textTheme.bodyMedium,
+                                        ),
+                                        const SizedBox(
+                                          height: 8,
+                                        ),
+                                        Text(
+                                          totalAmount[index],
+                                          style: darkTheme.textTheme.labelSmall,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
