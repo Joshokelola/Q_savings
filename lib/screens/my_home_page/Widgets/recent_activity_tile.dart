@@ -15,12 +15,13 @@ class RecentActivitiesTile extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(top: 10, bottom: 10, left: 10),
         decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-              bottomRight: Radius.circular(10),
-            ),
-            color: Colors.black38),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+            bottomRight: Radius.circular(10),
+          ),
+          color: Color.fromARGB(255, 236, 231, 231),
+        ),
         child: Row(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,9 +37,17 @@ class RecentActivitiesTile extends StatelessWidget {
                   'See your recent activities',
                   style: darkTheme.textTheme.labelMedium,
                 ),
-                Text(
+                const SizedBox(
+                  height: 5,
+                ),
+                const Text(
                   'See your most recent activities on QSavings',
-                  style: darkTheme.textTheme.labelSmall,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    fontFamily: 'Worksans',
+                    color: Colors.black,
+                  ),
                 )
               ],
             )

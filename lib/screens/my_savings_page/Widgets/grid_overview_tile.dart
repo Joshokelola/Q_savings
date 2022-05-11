@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:q_savings_app/screens/create_target_page/view.dart';
 import 'package:q_savings_app/screens/my_savings_page/Widgets/flex_overview_page.dart';
 import 'package:q_savings_app/screens/my_savings_page/Widgets/quiiickbank_savings_page_detail.dart';
 import 'package:q_savings_app/screens/safelock_page/view.dart';
@@ -121,7 +122,9 @@ class GridListOverviewSavings extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () => Get.to(() => const SafeLockPage(),),
+            onTap: () => Get.to(
+              () => const SafeLockPage(),
+            ),
             child: Container(
               decoration: const BoxDecoration(
                 color: Colors.green,
@@ -161,41 +164,47 @@ class GridListOverviewSavings extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.black38,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-                bottomRight: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
-              ),
+          GestureDetector(
+            onTap: () => Get.to(
+              () => const CreateTargetPage(),
+              transition: Transition.leftToRight,
             ),
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.black38,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                ),
+              ),
 
-            // height: 20,
-            child: Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Quiiick Targets',
-                    style: darkTheme.textTheme.displayMedium,
-                  ),
-                  const SizedBox(height: 10),
-                  const Text(
-                    'Reach your unique individual savings goal.',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.white,
+              // height: 20,
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Quiiick Targets',
+                      style: darkTheme.textTheme.displayMedium,
                     ),
-                  ),
-                  const SizedBox(height: 75),
-                  Text(
-                    '\u{20A6}0.00',
-                    style: darkTheme.textTheme.labelSmall,
-                  )
-                ],
+                    const SizedBox(height: 10),
+                    const Text(
+                      'Reach your unique individual savings goal.',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 75),
+                    Text(
+                      '\u{20A6}0.00',
+                      style: darkTheme.textTheme.labelSmall,
+                    )
+                  ],
+                ),
               ),
             ),
           ),

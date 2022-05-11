@@ -39,11 +39,14 @@ dependencies:
   emojis:
   flutter_svg:
   animated_bottom_navigation_bar:
+  #material_floating_search_bar:
   auto_size_text_pk:
   salomon_bottom_bar:
   dots_indicator:
     path: C:/src/flutter_windows_2.2.2-stable/.pub-cache/hosted/pub.dartlang.org/dots_indicator-2.0.0
-  flutter_launcher_icons: ^0.9.2
+  # flutter_launcher_icons: ^0.9.2
+  intro_slider: ^3.0.2
+  
   # flutter_native_splash: ^2.1.6
   # permission_handler: ^9.2.0
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class ViewSafelock extends StatefulWidget {
@@ -15,6 +16,37 @@ class _ViewSafelockState extends State<ViewSafelock> {
     var items = ['Ongoing(0)', 'Paid(4)'];
 
     return Scaffold(
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Tooltip(
+          message: 'Create Safelock',
+          triggerMode: TooltipTriggerMode.tap,
+          child: InkWell(
+            onTap: () => InkSplash.splashFactory,
+            child: GestureDetector(
+              onTap: () => Get.back(),
+              child: Container(
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25),
+                    bottomLeft: Radius.circular(25),
+                  ),
+                  color: Color.fromARGB(255, 6, 73, 8),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(12.0),
+                  child: Icon(
+                    Icons.create_outlined,
+                    color: Colors.white,
+                    size: 40,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Container(
           margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
@@ -131,7 +163,18 @@ class OngoingSafelockPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 200,
+            width: 200,
+            child: SvgPicture.asset('images/goals.svg'),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -146,21 +189,21 @@ class PaidSafelock extends StatelessWidget {
         safelockRemark: 'Savings',
       ),
       const SizedBox(
-        height: 5,
+        height: 10,
       ),
       SavingsContainer(
         amount: '15,000',
         safelockRemark: 'Allowance',
       ),
       const SizedBox(
-        height: 5,
+        height: 10,
       ),
       SavingsContainer(
         amount: '35,000',
         safelockRemark: 'Savings',
       ),
       const SizedBox(
-        height: 5,
+        height: 10,
       ),
       SavingsContainer(
         amount: '5,000',
@@ -185,7 +228,7 @@ class SavingsContainer extends StatelessWidget {
       height: 80,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 214, 211, 211),
+        color: const Color.fromARGB(255, 236, 231, 231),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Padding(
@@ -208,12 +251,14 @@ class SavingsContainer extends StatelessWidget {
                   safelockRemark,
                   style: const TextStyle(
                     fontSize: 18,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 Text(
                   '\u{20A6}$amount',
                   style: const TextStyle(
                     color: Colors.green,
+                    fontWeight: FontWeight.w500,
                     fontSize: 18,
                   ),
                 ),

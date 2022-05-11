@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:q_savings_app/screens/safelock_page/Widgets/create_safelock_bottom_view.dart';
+import 'package:q_savings_app/screens/safelock_page/Widgets/safelock_definition_page.dart';
 import 'package:q_savings_app/screens/safelock_page/Widgets/view_paid_safelock.dart';
 
 class SafeLockPage extends StatelessWidget {
@@ -16,6 +17,7 @@ class SafeLockPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: const Color.fromARGB(31, 180, 176, 176),
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(8.0),
         child: FloatingActionButton(
@@ -57,7 +59,7 @@ class SafeLockPage extends StatelessWidget {
                         height: 200,
                         width: 200,
                         //TODO: SHOULD PROBABLY EDIT THIS IMAGE TO CONFORM WITHE PAGE'S GREEN THEME
-                        child: SvgPicture.asset('images/setup.svg'),
+                        child: SvgPicture.asset('images/vault.svg'),
                       ),
                     ),
                     const SizedBox(
@@ -151,29 +153,35 @@ class SafeLockPage extends StatelessWidget {
                     const SizedBox(
                       height: 15,
                     ),
-                    Container(
-                      height: 50,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          style: BorderStyle.solid,
-                          color: Colors.green,
-                          width: 1,
-                        ),
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
-                        ),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'WHAT IS A SAFELOCK?',
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Worksans',
-                            color: Colors.green,
+                    GestureDetector(
+                      onTap: () =>
+                          Get.to(() => const SafeLockDefinitionScreen()),
+                      child: InkWell(
+                        child: Container(
+                          height: 50,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              style: BorderStyle.solid,
+                              color: Colors.green,
+                              width: 1,
+                            ),
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
+                            ),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'WHAT IS A SAFELOCK?',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Worksans',
+                                color: Colors.green,
+                              ),
+                            ),
                           ),
                         ),
                       ),
