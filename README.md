@@ -28,3 +28,21 @@ and I'll try to change ui features I don't particularly like in the PiggyVest ap
   alt="Alt text"
   title="Optional title"
   style="display: inline-block; margin: 0 auto; max-width: 300px">
+
+<img
+  src="https://github.com/Joshokelola/Q_savings/blob/mobile-feature-responsive/Screenshot_20220511-021830729.png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
+
+<img
+  src="https://github.com/Joshokelola/Q_savings/blob/mobile-feature-responsive/Screenshot_20220511-021807599.png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
+
+<img
+  src="https://github.com/Joshokelola/Q_savings/blob/mobile-feature-responsive/Screenshot_20220511-021741702.png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
