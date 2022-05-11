@@ -22,3 +22,9 @@ and I'll try to change ui features I don't particularly like in the PiggyVest ap
   alt="Alt text"
   title="Optional title"
   style="display: inline-block; margin: 0 auto; max-width: 300px">
+
+<img
+  src="https://github.com/Joshokelola/Q_savings/blob/mobile-feature-responsive/87654e08-529e-44dc-9069-ca0769ebc779.png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
