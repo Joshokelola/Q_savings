@@ -17,4 +17,8 @@ and I'll try to change ui features I don't particularly like in the PiggyVest ap
 - I'll use ShowcaseView package to showcase the best features of the app.
 
 **Screenshots**
-![home page](https://github.com/Joshokelola/Q_savings/blob/mobile-feature-responsive/samsung-galaxy-s20-mockup.png)
+<img
+  src="https://github.com/Joshokelola/Q_savings/blob/mobile-feature-responsive/samsung-galaxy-s20-mockup.png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
