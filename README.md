@@ -1,4 +1,5 @@
 **QSavings App (PiggyVest UI clone with tweaks)**
+[![Codemagic build status](https://api.codemagic.io/apps/627b10e43e384e48ab927e87/627b10e43e384e48ab927e86/status_badge.svg)](https://codemagic.io/apps/627b10e43e384e48ab927e87/627b10e43e384e48ab927e86/latest_build)
 
 A **Savings App Ui design**, inspired by **PiggyVest** UI design.
 Gonna probably try to switch some things up in this app,
